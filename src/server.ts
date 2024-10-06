@@ -1,11 +1,13 @@
 import express from 'express'
+import { initPresentationLayer } from './routes'
 
+require('dotenv').config()
 console.log('Starting application')
 
 const app = express()
+app.use(express.json());
 
-// TODO - inicializar camada de apresentação que contém a configuração dos endpoints
-// initPresentationLayer(app)
+initPresentationLayer(app)
 
 const port = 3000
 const server = app.listen(port, () => {
